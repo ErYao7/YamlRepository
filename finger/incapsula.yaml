@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: incapsula
+expression: r0()
+id: ""
+name: incapsula
+rules:
+  r0:
+    expression: >
+        r"(?i)X-Cdn: Incapsula".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

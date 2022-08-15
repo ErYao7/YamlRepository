@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: Apache Flink
+expression: r0()
+id: ""
+name: Apache Flink
+rules:
+  r0:
+    expression: (response.body.bcontains(b"<img alt=\"apache flink dashboard\" src=\"images/flink-logo.png") ||
+      response.title.icontains("apache flink web dashboard"))
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

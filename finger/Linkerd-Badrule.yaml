@@ -1,0 +1,17 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+      headers:
+        l5d-dtab: /svc/*
+    expression: >
+       response.body.bcontains(b"expected but end of input found at") || r'(?mi)^l5d-success-class: 0.*$'.bmatches(response.raw_header) || r'(?mi)^l5d-err:.*$'.bmatches(response.raw_header) || r'(?mi)^Via\s*?:.*?linkerd.*$'.bmatches(response.raw_header)
+expression: r0()
+detail:
+  fingerprint:
+    product: linkerd-badrule-detect

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: laravel
+expression: r0()
+id: ""
+name: laravel
+rules:
+  r0:
+    expression: r"(?i)laravel_session".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

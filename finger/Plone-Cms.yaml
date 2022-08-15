@@ -1,0 +1,19 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: >
+        response.body.bcontains(b'<meta name="generator" content="Plone - ') || 
+        response.body.bcontains(b'<div xmlns:css="http://namespaces.plone.org/diazo/css"') || 
+        response.body.bcontains(b'/++plone++static/plone-compiled.css') || 
+        response.body.bcontains(b'/++plone++static/tinymce-styles.css') || 
+        response.body.bcontains(b'>Powered by Plone &amp; Python</a>')
+expression: r0()
+detail:
+  fingerprint:
+    product: plone-cms-detect

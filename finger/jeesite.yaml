@@ -1,0 +1,26 @@
+detail:
+  fingerprint:
+    product: jeesite
+expression: r0() || r1()
+name: jeesite
+rules:
+  r0:
+    expression: >
+        r"(?i)jeesite.session.id".bmatches(response.raw_header) ||
+        r"(?i)Powered By JeeSite".bmatches(response.body) ||
+        r'(?i)content="http://jeesite.com/"/'.bmatches(response.body) ||
+        r'(?i)src="/static/common/jeesite.js'.bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+  r1:
+    expression: >
+        r"(?i)jeesite.session.id".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: false
+      method: GET
+      path: /a
+transport: http

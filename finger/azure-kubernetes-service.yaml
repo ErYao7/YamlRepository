@@ -1,0 +1,14 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.status == 200 && response.body.bcontains(b"<title>Welcome to Azure Kubernetes Service (AKS)")
+expression: r0()
+detail:
+  fingerprint:
+    product: azure-kubernetes-service

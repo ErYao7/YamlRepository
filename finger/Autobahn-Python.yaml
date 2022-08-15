@@ -1,0 +1,14 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.status == 200 && r'AutobahnPython([ 0-9.]+)'.bmatches(response.body)
+expression: r0()
+detail:
+  fingerprint:
+    product: autobahn-python-detect

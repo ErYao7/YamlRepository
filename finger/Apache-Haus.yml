@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: Apache-Haus
+expression: r0()
+id: ""
+name: Apache-Haus
+rules:
+  r0:
+    expression: (response.body.bcontains(b"copyright &copy; 2008-2017 <a href=\"http://www.apachehaus.com\">the apache haus</a>") || 
+      response.body.bcontains(b"href=\"/apachehaus.ico")) ||
+      response.title.icontains("apache haus")
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

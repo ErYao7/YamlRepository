@@ -1,0 +1,20 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.status == 200 && response.title.icontains("SolarWinds Orion")
+  r1:
+    expression: r"(?i)8861fb6bd5d52fb453658e7d39231cf0".matches(byte_md5(response.body))
+    request:
+      method: GET
+      cache: true
+      path: /Orion/images/favicon.ico
+expression: r0() || r1()
+detail:
+  fingerprint:
+    product: solarwinds-orion

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: cloudflare
+expression: r0()
+id: ""
+name: cloudflare
+rules:
+  r0:
+    expression: r"(?i)cloudflare".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

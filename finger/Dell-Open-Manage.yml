@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: Dell-Open-Manage
+expression: r0()
+id: ""
+name: Dell-Open-Manage
+rules:
+  r0:
+    expression: (response.body.bcontains(b"<img title=\"open manage\" alt=\"open manage")
+      || response.title.icontains("open manage&trade;"))
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

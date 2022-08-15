@@ -1,0 +1,20 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.status == 200 && response.title.icontains("Virtual Office")
+  r1:
+    expression:  r"(?i)60fa7ed2309d77de1f9dc5e7c741ac48".matches(byte_md5(response.body))
+    request:
+      method: GET
+      cache: true
+      path: /favicon.ico
+expression: r0() || r1()
+detail:
+  fingerprint:
+    product: sonicwall-sslvpn

@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: netcontinuum
+expression: r0()
+id: ""
+name: netcontinuum
+rules:
+  r0:
+    expression: r"(?i)Cneonction".bmatches(response.raw_header) || r"(?i)nnCoection".bmatches(response.raw_header)
+      || r"(?i)citrix_ns_id".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

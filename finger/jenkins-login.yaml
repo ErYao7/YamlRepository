@@ -1,0 +1,18 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      method: GET
+      path: /login
+    expression: |
+      response.status == 200 && 
+      (response.title.icontains("Sign in [Jenkins]") ||
+      response.title.icontains("Jenkins") ||
+      r"(?i)Welcome to Jenkins!".bmatches(response.body)) 
+expression: r0()
+detail:
+  fingerprint:
+    product: jenkins-login
+

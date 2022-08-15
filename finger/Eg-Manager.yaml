@@ -1,0 +1,16 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.status == 200 &&
+      response.body.bcontains(b"eG Innovations, Inc. All Rights Reserved") &&
+      response.title.icontains("eG Innovations, Inc.")
+expression: r0()
+detail:
+  fingerprint:
+    product: eg-manager-detect

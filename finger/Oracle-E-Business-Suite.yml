@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: Oracle-E-Business-Suite
+expression: r0()
+id: ""
+name: Oracle-E-Business-Suite
+rules:
+  r0:
+    expression: response.title.icontains("E-Business Suite Home Page Redirect") ||
+        r"(?i)The E-Business Home Page is located at <a href=".bmatches(response.raw_header)
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

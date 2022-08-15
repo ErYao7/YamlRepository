@@ -1,0 +1,18 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: >
+        response.body.bcontains(b"Could not login to JasperReports Server") || 
+        response.title.icontains("TIBCO Jaspersoft: 登录") || 
+        response.title.icontains("TIBCO Jaspersoft") || 
+        response.body.bcontains(b"About TIBCO JasperReports Server")
+expression: r0()
+detail:
+  fingerprint:
+    product: TIBCO-Jaspersoft

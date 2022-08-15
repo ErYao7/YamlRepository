@@ -1,0 +1,12 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      method: GET
+      path: /
+    expression: response.status == 200 && response.body.bcontains(b"Mirantis Kubernetes Engine")
+expression: r0()
+detail:
+  fingerprint:
+    product: kubernetes-mirantis

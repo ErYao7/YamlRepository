@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: cisco_epc3925
+expression: r0()
+id: ""
+name: cisco_epc3925
+rules:
+  r0:
+    expression: r"(?i)Docsis_system".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

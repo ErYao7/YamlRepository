@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 启莱oa
+expression: r0()
+id: ""
+name: 启莱oa
+rules:
+  r0:
+    expression: r"(?i)js/jQselect.js".bmatches(response.body) || r"(?i)js/jquery-1.4.2.min.js".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

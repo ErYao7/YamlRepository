@@ -1,0 +1,14 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.title.icontains("Test Page for the Nginx HTTP Server on Amazon Linux")
+expression: r0()
+detail:
+  fingerprint:
+    product: nginx-linux-page

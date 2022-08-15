@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 360网站卫士常用前端公共库
+expression: r0()
+id: ""
+name: 360网站卫士常用前端公共库
+rules:
+  r0:
+    expression: r"(?i)libs.useso.com".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

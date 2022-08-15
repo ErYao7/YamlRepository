@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: jira
+expression: r0()
+id: ""
+name: jira
+rules:
+  r0:
+    expression: r"(?i)jira.webresources".bmatches(response.body) ||
+      (response.body.bcontains(b"Project Management Software") && response.body.bcontains(b"atlassian.com/software/jira"))
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

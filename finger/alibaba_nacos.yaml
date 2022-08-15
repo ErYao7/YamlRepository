@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: alibaba_nacos
+expression: r0()
+id: ""
+name: alibaba_nacos
+rules:
+  r0:
+    expression: r"(?i)<title>Nacos</title>".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

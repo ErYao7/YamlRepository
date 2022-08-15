@@ -1,0 +1,16 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /passport/login/
+    expression: response.status == 200 && 
+        (response.title.icontains("OneBlog开源博客后台管理系统") ||
+        r"(?i)Bootstrap Admin Template by".bmatches(response.body))
+expression: r0()
+detail:
+  fingerprint:
+    product: oneblog-detect

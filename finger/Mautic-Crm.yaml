@@ -1,0 +1,40 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /s/login
+    expression: >
+      r"Copyright \d{4} Mautic\. All Rights Reserved\.".bmatches(response.raw_header) || 
+      r"var\s+?mautic(?:BasePath|BaseUrl|AjaxUrl|AjaxCsrf|AssetPrefix|Content|Env|Lang)\s+?=".bmatches(response.raw_header) || 
+      response.title.icontains("Mautic") || 
+      response.body.bcontains(b'<div class="mautic-logo')
+expression: r0()
+detail:
+  fingerprint:
+    product: mautic-crm-detect
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

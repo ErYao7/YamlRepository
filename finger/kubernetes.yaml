@@ -1,0 +1,20 @@
+detail:
+  fingerprint:
+    product: kubernetes
+expression: r0()
+id: ""
+name: kubernetes
+rules:
+  r0:
+    expression: >
+        r'(?i)Www-Authenticate: realm="kubernetes'.bmatches(response.raw_header) ||
+        r'(?i)href="assets/images/kubernetes-logo.png'.bmatches(response.body) ||
+        r'(?i)<article class="post kubernetes'.bmatches(response.body) ||
+        r'(?i)<b>kubernetes</b> listening'.bmatches(response.body) ||
+        r'(?i)value="kubernetes'.bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

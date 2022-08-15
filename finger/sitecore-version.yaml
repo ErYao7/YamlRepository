@@ -1,0 +1,14 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /sitecore/shell/sitecore.version.xml
+    expression: response.status == 200 && response.body.bcontains(b"Sitecore Corporation") && r"<major>([0-9]+)</major>".bmatches(response.body)
+expression: r0()
+detail:
+  fingerprint:
+    product: sitecore-version

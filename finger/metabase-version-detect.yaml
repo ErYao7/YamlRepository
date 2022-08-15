@@ -1,0 +1,18 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /auth/login
+    expression: response.status == 200 && 
+        (response.body.bcontains(b"window.MetabaseRoot") || 
+        response.title.icontains("Metabase") ||
+        response.body.bcontains(b"window.MetabaseBootstrap") || 
+        r'"(v\d+.\d+.\d+)"'.bmatches(response.body))
+expression: r0()
+detail:
+  fingerprint:
+    product: metabase-version-detect

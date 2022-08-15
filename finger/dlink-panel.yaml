@@ -1,0 +1,31 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      method: GET
+      path: /login.html
+      follow_redirects: true
+      cache: true
+    expression: |
+      response.status == 200 &&
+      (response.body.bcontains(b'languagechange(share.ti_username)')  &&
+      response.body.bcontains(b'DILanguage')) ||
+      (response.body.bcontains(b"AC集中管理平台") &&
+      response.body.bcontains(b"D-Link路由器")) ||
+      (response.title.icontains("ADSL Router") &&
+      response.body.bcontains(b"D-Link"))
+  r1:
+    request:
+      cache: true
+      method: GET
+      path: /info/Login.html
+      follow_redirects: true
+    expression: |
+      response.status == 200 &&
+      response.title.icontains("D-LINK")  &&
+      response.body.bcontains(b'dlink-favicon.ico')
+expression: r0() || r1()
+detail:
+  fingerprint:
+    product: dlink-panel

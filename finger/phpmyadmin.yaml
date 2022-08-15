@@ -1,0 +1,21 @@
+detail:
+  fingerprint:
+    product: phpmyadmin
+expression: r0() || r1()
+id: ""
+name: phpmyadmin
+rules:
+  r0:
+    expression: r"(?i)/themes/pmahomme/img/logo_right.png".bmatches(response.body) ||
+        response.title.icontains("phpMyAdmin")
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+  r1:
+    request:
+      method: GET
+      path: /phpmyadmin/
+    expression: response.status == 200 && response.title.icontains("phpMyAdmin") && response.body.bcontains(b'pmahomme') && "v=([a-z0-9-._]+)".bmatches(response.body)
+transport: http

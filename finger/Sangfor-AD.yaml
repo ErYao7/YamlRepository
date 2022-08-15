@@ -1,0 +1,14 @@
+detail:
+  fingerprint:
+    product: SANGFOR-AD
+expression: r0() 
+name: SANGFOR-AD
+rules:
+  r0:
+    expression:  r"98128e625a3b98546a206c2170fb5eb3".matches(byte_md5(response.body))
+    request:
+      method: GET
+      cache: true
+      follow_redirects: true
+      path: /favicon.ico
+transport: http

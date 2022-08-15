@@ -1,0 +1,42 @@
+id:
+transport: http
+set:
+    randstr: randomLowercase(6)
+    Hostname: request.url.host
+rules:
+    r0:
+        request:
+            cache: true
+            follow_redirects: true
+            method: GET
+            path: /
+            headers:
+                Host: '{{Hostname}}'
+                cookie: JSESSIONID={{randstr}};rememberMe=123;
+        expression: response.status == 200 && 
+            (('Set-Cookie' in response.headers && response.headers["Set-Cookie"].contains("rememberMe=deleteMe")) || 
+            ('Cookie' in response.headers && response.headers["Cookie"].contains("rememberMe=deleteMe")))
+    r1:
+        request:
+            cache: true
+            follow_redirects: true
+            method: GET
+            path: /login
+            headers:
+                Host: '{{Hostname}}'
+                cookie: JSESSIONID={{randstr}};rememberMe=123;
+        expression: response.status == 200 && 
+            (('Set-Cookie' in response.headers && response.headers["Set-Cookie"].contains("rememberMe=deleteMe")) || 
+            ('Cookie' in response.headers && response.headers["Cookie"].contains("rememberMe=deleteMe")))
+    r2:
+        request:
+            cache: true
+            follow_redirects: true
+            method: GET
+            path: /
+        expression: r"(?i)(rememberMe=|=deleteMe|shiro-cas)".bmatches(response.raw_header) || 
+            r"(?i)(</i> shiro</li>)".bmatches(response.body)
+expression: r0() || r1() || r2()
+detail:
+    fingerprint:
+        product: Apache-Shiro

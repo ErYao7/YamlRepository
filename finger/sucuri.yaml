@@ -1,0 +1,18 @@
+detail:
+  fingerprint:
+    product: sucuri
+expression: r0()
+id: ""
+name: sucuri
+rules:
+  r0:
+    expression: >
+        r"(?i)X-Sucuri".bmatches(response.raw_header) ||  
+        r"(?i)Sucuri/Cloudproxy".bmatches(response.raw_header) ||
+        r'(?i)href="https://cdn.sucuri.net'.bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

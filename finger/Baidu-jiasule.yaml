@@ -1,0 +1,18 @@
+detail:
+  fingerprint:
+    product: jiasule
+expression: r0()
+id: ""
+name: jiasule
+rules:
+  r0:
+    expression: r"(?i)jsluid".bmatches(response.raw_header) ||
+      r"(?i)X-Via-JSL".bmatches(response.raw_header) ||
+      r"(?i)cdnuid".bmatches(response.raw_header) ||
+      r"(?i)X-CDN-Edge".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

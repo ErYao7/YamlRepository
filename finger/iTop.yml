@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: iTop
+expression: r0()
+id: ""
+name: iTop
+rules:
+  r0:
+    expression: response.body.bcontains(b"href=\"http://www.combodo.com/itop") ||
+      response.title.icontains("iTop login")
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

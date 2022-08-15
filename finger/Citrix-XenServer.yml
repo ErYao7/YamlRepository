@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: Citrix-XenServer
+expression: r0()
+id: ""
+name: Citrix-XenServer
+rules:
+  r0:
+    expression: ((response.title.icontains("xenserver ") || response.body.bcontains(b"<a
+      href=\"xencentersetup.exe\">xencenter installer</a>")) || response.body.bcontains(b"citrix
+      systems, inc. xenserver"))
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

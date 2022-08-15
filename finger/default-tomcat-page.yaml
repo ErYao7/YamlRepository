@@ -1,0 +1,15 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: 
+      response.title.icontains("Apache Tomcat")
+expression: r0()
+detail:
+  fingerprint:
+    product: default-tomcat-page

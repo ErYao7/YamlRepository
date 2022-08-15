@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 360企业版
+expression: r0()
+id: ""
+name: 360企业版
+rules:
+  r0:
+    expression: r"(?i)360EntWebAdminMD5Secret".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 致远oa
+expression: r0()
+id: ""
+name: 致远oa
+rules:
+  r0:
+    expression: r"(?i)/seeyon/common/".bmatches(response.body) || r"(?i)/seeyon/USER-DATA/IMAGES/LOGIN/login.gif".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

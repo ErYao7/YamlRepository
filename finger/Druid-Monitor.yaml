@@ -1,0 +1,15 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /druid/login.html
+    expression: response.status == 200 &&
+      response.body.bcontains(b"<title>druid monitor</title>")
+expression: r0()
+detail:
+  fingerprint:
+    product: druid-detect

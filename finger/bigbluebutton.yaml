@@ -1,0 +1,16 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.body.bcontains(b"<title>BigBlueButton</title>") ||
+      response.body.bcontains(b"<title>BigBlueButton - Open Source Web Conferencing</title>") ||
+      response.body.bcontains(b"<title>BigBlueButton")
+expression: r0()
+detail:
+  fingerprint:
+    product: bigbluebutton

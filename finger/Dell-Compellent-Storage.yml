@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: Dell-Compellent-Storage
+expression: r0()
+id: ""
+name: Dell-Compellent-Storage
+rules:
+  r0:
+    expression: '(response.raw_cert.bcontains(b"o=compellent technologies") || (!response.body.bcontains(b"server:
+      couchdb") && (response.body.bcontains(b"code: ''com.compellent.systemexplorer.systemexplorer.class'',")
+      || response.title.icontains("compellent storage center"))))'
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

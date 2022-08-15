@@ -1,0 +1,16 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: >
+      r"(?i)Set-Cookie: grav-site-".bmatches(response.raw_header) ||
+      response.body.bcontains(b'<meta name="generator" content="GravCMS" />')
+expression: r0()
+detail:
+  fingerprint:
+    product: grav-cms-detect

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: o2security_vpn
+expression: r0()
+id: ""
+name: o2security_vpn
+rules:
+  r0:
+    expression: r"(?i)client_param=install_active".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

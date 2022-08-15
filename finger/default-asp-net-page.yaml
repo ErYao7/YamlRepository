@@ -1,0 +1,17 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: >
+        (response.title.icontains("Home Page") ||
+        response.title.icontains("Home Page - My ASP.NET Application") ||
+        r"(?i)X-Powered-By: ASP.NET".bmatches(response.raw_header))
+expression: r0()
+detail:
+  fingerprint:
+    product: default-asp-net-page

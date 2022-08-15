@@ -1,0 +1,28 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.body.bcontains(b"var nc_lastLogin")
+  r1:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /login
+    expression: response.body.bcontains(b"var nc_lastLogin")
+  r2:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /nextcloud/index.php/login
+    expression: response.body.bcontains(b"var nc_lastLogin")
+expression: r0() || r1() || r2()
+detail:
+  fingerprint:
+    product: nextcloud-detect

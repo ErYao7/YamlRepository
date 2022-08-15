@@ -1,0 +1,12 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      method: GET
+      path: /auth.html
+    expression: response.status == 200 && response.title.icontains("SonicWall - Authentication") && response.body.bcontains(b'SonicWall Administrator')
+expression: r0()
+detail:
+  fingerprint:
+    product: sonicwall-management

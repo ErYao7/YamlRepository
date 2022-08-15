@@ -1,0 +1,17 @@
+detail:
+  fingerprint:
+    product: DedeCMS
+expression: r0()
+id: ""
+name: DedeCMS
+rules:
+  r0:
+    expression: (response.body.bcontains(b"<div><h3>dedecms error warning!</h3>")
+      || ((response.body.bcontains(b"/templets/default/style/dedecms.css") || ((response.body.bcontains(b"dedecms")
+      && response.body.bcontains(b"http://www.dedecms.com/")) && response.body.bcontains(b"powered
+      by"))) || response.body.bcontains(b"power by dedecms")))
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

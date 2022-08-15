@@ -1,0 +1,18 @@
+detail:
+  fingerprint:
+    product: portainer
+expression: r0()
+id: ""
+name: portainer
+rules:
+  r0:
+    expression: >
+        response.body.bcontains(b"href=\"ico/safari-pinned-tab.svg\"") ||
+        response.title.icontains("portainer") || 
+        r"(?i)portainer.updatePassword".bmatches(response.body) || 
+        r"(?i)portainer.init.admin".bmatches(response.body)
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

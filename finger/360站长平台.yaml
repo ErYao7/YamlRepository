@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 360站长平台
+expression: r0()
+id: ""
+name: 360站长平台
+rules:
+  r0:
+    expression: r"(?i)360-site-verification".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

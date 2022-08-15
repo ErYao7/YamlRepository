@@ -1,0 +1,22 @@
+detail:
+  fingerprint:
+    product: Citrix-Access-Gateway
+expression: r0()
+id: ""
+name: Citrix-Access-Gateway
+rules:
+  r0:
+    expression: (((((((response.body.bcontains(b"receiver/images/common/icon_vpn.ico")
+      && response.body.bcontains(b"class=\"_ctxstxt_netscalergateway\"")) || ((((response.body.bcontains(b"vpn/js/lsgateway_login_view.js")
+      || (response.body.bcontains(b"cloud.ottoworkfroce.eu/vpn/index.html") && response.body.bcontains(b"/vpn/js/gateway_login_view.js?")))
+      || response.body.bcontains(b"class=\"citrixreceiverlogoaboutbox\"")) || response.body.bcontains(b"href=\"/vpn/images/accessgateway.ico"))
+      && response.title.icontains("citrix gateway"))) || (response.body.bcontains(b"/vpn/images/accessgateway.ico")
+      && response.raw_header.bcontains(b"pwcount"))) || response.raw_header.bcontains(b"cyms-secs"))
+      || response.raw_header.bcontains(b"ezisneercsresu=")) || response.body.bcontains(b"href=\"/vpn/images/accessgateway.ico"))
+      || response.title.icontains("citrix access gateway"))
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

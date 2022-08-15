@@ -1,0 +1,15 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: >
+      response.status == 200 && response.title.icontains("Microsoft Azure App Service - Welcome")
+expression: r0()
+detail:
+  fingerprint:
+    product: default-microsoft-azure-page

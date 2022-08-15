@@ -1,0 +1,17 @@
+detail:
+  fingerprint:
+    product: atmail-webmail
+expression: r0()
+id: ""
+name: atmail-webmail
+rules:
+  r0:
+    expression: r"(?i)/index.php/mail/auth/processlogin".bmatches(response.body) ||
+      r"(?i)Powered by Atmail".bmatches(response.body) ||
+      r"(?i)/index.php/mobile/index/index/accessibility/1".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

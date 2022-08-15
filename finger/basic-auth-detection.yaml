@@ -1,0 +1,14 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: r"(?i)Www-Authenticate:".bmatches(response.raw_header) && response.status == 401
+expression: r0()
+detail:
+  fingerprint:
+    product: basic-auth-detection

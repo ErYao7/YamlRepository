@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: spark_worker
+expression: r0()
+id: ""
+name: spark_worker
+rules:
+  r0:
+    expression: r"(?i)Spark Worker at".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,28 @@
+detail:
+  fingerprint:
+    product: Axis-Network-Camera
+expression: r0() || r1()
+id: ""
+name: Axis-Network-Camera
+rules:
+  r0:
+    expression: >
+      (!response.body.bcontains(b"server: couchdb") && 
+      (((response.body.bcontains(b"/axis-media/media.amp?") || 
+      response.body.bcontains(b"src=\"/incl/axis_connection.js")) || 
+      response.body.bcontains(b"/incl/trash.shtml"))
+      || response.title.icontains("axis video server")))
+    request:
+      follow_redirects: true
+      cache: true
+      method: GET
+      path: /
+  r1:
+    expression: response.title.icontains("axis video server") ||
+      response.title.icontains("axis")
+    request:
+      follow_redirects: true
+      cache: true
+      method: GET
+      path: /
+transport: http

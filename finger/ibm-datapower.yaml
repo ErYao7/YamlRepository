@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: ibm-datapower
+expression: r0()
+id: ""
+name: ibm-datapower
+rules:
+  r0:
+    expression: r"(?i)X-Backside-Transport".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

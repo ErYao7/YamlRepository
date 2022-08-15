@@ -1,0 +1,14 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.title.icontains("Opencast")
+expression: r0()
+detail:
+  fingerprint:
+    product: opencast-detect

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: sonicwall
+expression: r0()
+id: ""
+name: sonicwall
+rules:
+  r0:
+    expression: r"(?i)SonicWALL".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

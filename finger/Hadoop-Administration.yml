@@ -1,0 +1,19 @@
+detail:
+  fingerprint:
+    product: Hadoop-Administration
+expression: r0()
+id: ""
+name: Hadoop-Administration
+rules:
+  r0:
+    expression: ((response.body.bcontains(b"class=\"navbar-brand\">hadoop</div>") || 
+        response.body.bcontains(b"/static/hadoop.css")) || 
+        response.title.icontains("hadoop administration") ||
+        response.title.icontains("DataNode Information") ||
+        response.title.icontains("Namenode information"))
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

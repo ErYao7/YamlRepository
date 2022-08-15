@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: pulse_connect_secure
+expression: r0()
+id: ""
+name: pulse_connect_secure
+rules:
+  r0:
+    expression: r"(?i)/dana-na/imgs/space.gif".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

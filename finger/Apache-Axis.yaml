@@ -1,0 +1,20 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.status == 200 &&
+      response.body.bcontains(b"Welcome to the new generation of Axis") &&
+      response.body.bcontains(b"Axis2 Web Application") &&
+      response.body.bcontains(b"the validate link") &&
+      response.body.bcontains(b"deployed") &&
+      response.body.bcontains(b"installation")
+      
+expression: r0()
+detail:
+  fingerprint:
+    product: apache-axis-detect

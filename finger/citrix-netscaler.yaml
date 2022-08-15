@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: citrix-netscaler
+expression: r0()
+id: ""
+name: citrix-netscaler
+rules:
+  r0:
+    expression: response.body.bcontains(b"<title>Citrix Login</title>")
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

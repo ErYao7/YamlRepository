@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: Baidu-CDN
+expression: r0()
+id: ""
+name: Baidu-CDN
+rules:
+  r0:
+    expression: (((response.body.bcontains(b"libs.baidu.com") || response.raw_header.bcontains(b"libs.baidu.com"))
+      || response.body.bcontains(b"apps.bdimg.com")) || response.raw_header.bcontains(b"apps.bdimg.com"))
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

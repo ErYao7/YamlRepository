@@ -1,0 +1,23 @@
+detail:
+  fingerprint:
+    product: 泛微-EOffice
+expression: r1() || r0()
+id: ""
+name: xxl-job
+rules:
+  r0:
+    expression: >
+        r'(?i)Eoffice Version'.bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /lang/cn/javascript.lang.js
+  r1:
+    expression:  r"41eca7a9245394106a09b2534d8030df".matches(byte_md5(response.body))
+    request:
+      method: GET
+      cache: true
+      follow_redirects: true
+      path: /favicon.ico
+transport: http

@@ -1,0 +1,17 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: >
+      response.status == 200 &&
+      (response.body.bcontains(b"Apache2 Debian Default Page: It works</title>") ||
+      response.body.bcontains(b"<title>Apache2 Debian Default Page: It works"))
+expression: r0()
+detail:
+  fingerprint:
+    product: default-apache2-page

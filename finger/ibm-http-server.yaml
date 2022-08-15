@@ -1,0 +1,16 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.status == 200 &&
+      (r'IBM HTTP Server ([0-9.]+)'.bmatches(response.body) ||
+      response.title.icontains("IBM HTTP Server"))
+expression: r0()
+detail:
+  fingerprint:
+    product: ibm-http-server

@@ -1,0 +1,18 @@
+detail:
+  fingerprint:
+    product: baiduyunjiasu
+expression: r0()
+id: ""
+name: baiduyunjiasu
+rules:
+  r0:
+    expression: r"(?i)yunjiasu".bmatches(response.raw_header) ||
+        r"(?i)yunjiasu.html".bmatches(response.body) ||
+        r"(?i)baiduyunjiasu-logo.gif".bmatches(response.body) ||
+        r"(?i)baiduyunjiasu".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

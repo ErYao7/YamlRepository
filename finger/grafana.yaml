@@ -1,0 +1,14 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      follow_redirects: true
+      cache: true
+      method: GET
+      path: /login
+    expression: response.status == 200 && response.title.icontains("Grafana")
+expression: r0()
+detail:
+  fingerprint:
+    product: grafana-panel

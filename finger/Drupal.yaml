@@ -1,0 +1,20 @@
+detail:
+  fingerprint:
+    product: Drupal
+expression: r0()
+id: ""
+name: Drupal
+rules:
+  r0:
+    expression: >
+        r'(?i)x-drupal-cache'.bmatches(response.raw_header) || 
+        r'(?i)drupal'.bmatches(response.raw_header)||
+        r'(?i)http://drupal.org'.bmatches(response.raw_header) ||
+        r'(?iname="Generator" content="Drupal'.bmatches(response.raw_header) ||
+        response.title.icontains("Drupal")
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,23 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /assets/img/favicon-32x32.png
+    expression: r"7c1c26856345cd7edbf250ead0dc9332".matches(byte_md5(response.body))
+  r1:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.status == 200 &&
+      response.body.bcontains(b"<title>Aviatrix") &&
+      response.body.bcontains(b"Controller</title>")
+expression: r0() || r1()
+detail:
+  fingerprint:
+    product: aviatrix-detect

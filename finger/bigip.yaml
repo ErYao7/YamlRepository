@@ -1,0 +1,18 @@
+detail:
+  fingerprint:
+    product: bigip
+expression: r0()
+id: ""
+name: bigip
+rules:
+  r0:
+    expression: r"(?i)BigIP".bmatches(response.raw_header) || 
+      r"(?i)BIGipServer".bmatches(response.raw_header) ||
+      (r'(BIGipServer[a-z\_\.\-\~0-9A-Z]*)=([!a-z0-9A-Z/.=]+)'.bmatches(response.raw_header) &&
+      r'(?i)BIGipServer~'.bmatches(response.raw_header)) ||
+      response.body.bcontains(b"<title>BIG-IP")
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

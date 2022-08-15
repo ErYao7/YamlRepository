@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: safe3
+expression: r0()
+id: ""
+name: safe3
+rules:
+  r0:
+    expression: r"(?i)Safe3WAF".bmatches(response.raw_header) || r"(?i)Safe3 Web Firewall".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

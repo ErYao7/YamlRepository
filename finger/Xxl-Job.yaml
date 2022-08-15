@@ -1,0 +1,32 @@
+detail:
+  fingerprint:
+    product: xxl-job
+expression: r1() || r0() || r2()
+id: ""
+name: xxl-job
+rules:
+  r0:
+    expression: response.title.icontains("分布式任务调度平台") ||
+        response.title.icontains("任务调度中心") ||
+        response.title.icontains("Scheduling Centers") ||
+        r'(?i)</b>JOB</a>'.bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+  r1:
+    expression:  r"421c7c35244591f892496fe4d6e51921".matches(byte_md5(response.body))
+    request:
+      method: GET
+      cache: true
+      follow_redirects: true
+      path: /favicon.ico
+  r2:
+    expression:  r"421c7c35244591f892496fe4d6e51921".matches(byte_md5(response.body))
+    request:
+      method: GET
+      cache: true
+      follow_redirects: true
+      path: /static/favicon.ico
+transport: http

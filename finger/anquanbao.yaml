@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: anquanbao
+expression: r0()
+id: ""
+name: anquanbao
+rules:
+  r0:
+    expression: r"(?i)Anquanbao".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

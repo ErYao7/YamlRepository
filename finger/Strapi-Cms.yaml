@@ -1,0 +1,21 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.title.icontains("Strapi Admin") || r"(?i)Strapi".bmatches(response.raw_header)
+  r1:
+    expression:  r"(?i)1ec973a2d63f5c1e337f8bf2e35694a1".matches(byte_md5(response.body)) ||
+        r"(?i)4c4e7d0d5ebd40343f6e1281f0bd9438".matches(byte_md5(response.body))
+    request:
+      method: GET
+      cache: true
+      path: /favicon.ico
+expression: r0() || r1()
+detail:
+  fingerprint:
+    product: strapi-cms-detect

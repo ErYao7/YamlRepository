@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: metinfo-米拓建站
+expression: r0()
+id: ""
+name: metinfo-米拓建站
+rules:
+  r0:
+    expression: r"(?i)MetInfo".bmatches(response.body) || r"(?i)/skin/style/metinfo.css".bmatches(response.body)
+      || r"(?i)/skin/style/metinfo-v2.css".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

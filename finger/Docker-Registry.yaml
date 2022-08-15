@@ -1,0 +1,23 @@
+detail:
+  fingerprint:
+    product: Docker-Registry
+expression: r0() || r1()
+id: ""
+name: Docker-Registry
+rules:
+  r0:
+    expression: response.title.icontains("Docker Registry UI") ||
+        response.title.icontains("Docker registry")
+    request:
+      cache: true
+      method: GET
+      path: /
+  r1:
+    expression:  r"7ef3b451ca68834ed193eacd5e41c914".matches(byte_md5(response.body)) || 
+        r"dfd71941ce7aa3008128a84395df1359".matches(byte_md5(response.body))
+    request:
+      method: GET
+      cache: true
+      follow_redirects: true
+      path: /favicon.ico
+transport: http

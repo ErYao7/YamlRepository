@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: smartbi_insight
+expression: r0()
+id: ""
+name: smartbi_insight
+rules:
+  r0:
+    expression: r"(?i)smartbi.gcf.gcfutil".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

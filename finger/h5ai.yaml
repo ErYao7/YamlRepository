@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: h5ai
+expression: r0()
+id: ""
+name: h5ai
+rules:
+  r0:
+    expression: r"(?i)powered by h5ai".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

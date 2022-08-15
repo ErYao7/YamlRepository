@@ -1,0 +1,17 @@
+detail:
+  fingerprint:
+    product: cisco_vpn
+expression: r0()
+id: ""
+name: cisco_vpn
+rules:
+  r0:
+    expression: r"(?i)webvpn".bmatches(response.raw_header) ||
+        (r"(?i)/+CSCOE+/logon.html".bmatches(response.raw_header) && 
+        r"(?i)document.location.replace".bmatches(response.raw_header))
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

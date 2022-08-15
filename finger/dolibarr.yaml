@@ -1,0 +1,16 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: false
+      follow_redirects: true
+      method: GET
+      path: /
+    expression: response.status == 200 &&
+      (response.title.icontains("Dolibarr - Login Dolibarr") ||
+      response.title.icontains("Dolibarr - Login @ Dolibarr"))
+expression: r0()
+detail:
+  fingerprint:
+    product: dolibarr
