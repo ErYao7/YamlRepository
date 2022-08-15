@@ -1,0 +1,19 @@
+id:
+transport: http
+rules:
+    req:
+        request:
+            cache: false
+            method: GET
+            path: /
+            follow_redirects: true
+        expression: response.status==200 && 'X-Powered-By' in response.headers &&
+            response.headers['X-Powered-By'].contains('Express')
+expression: req()
+detail:
+    fingerprint:
+        softhard: 2
+        product: Express
+        company: OpenJS Foundation.
+        category: Middleware
+        parent_category: Support System

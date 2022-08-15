@@ -1,0 +1,17 @@
+id:
+transport: http
+rules:
+  req:
+    request:
+      method: GET
+      path: /
+    expression: response.status==200 &&
+                'X-Powered-By' in response.headers && response.headers['X-Powered-By'].contains('Next.js')
+expression: req()
+detail:
+  fingerprint:
+    softhard: 2
+    product: Next.js
+    company: ZEIT
+    category: Other Software System
+    parent_category: Software System

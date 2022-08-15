@@ -1,0 +1,19 @@
+id:
+transport: http
+rules:
+  req:
+    request:
+      cache: false
+      method: GET
+      path: /
+      follow_redirects: true
+    expression: response.status==200 && ('Powered-By' in response.headers && response.headers['Powered-By'].contains('PrestaShop') ||
+                'Set-Cookie' in response.headers && response.headers['Set-Cookie'].contains('PrestaShop'))
+expression: req()
+detail:
+  fingerprint:
+    softhard: 2
+    product: PrestaShop
+    company: PrestaShop
+    category: Other Software System
+    parent_category: Software System

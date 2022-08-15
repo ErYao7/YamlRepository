@@ -1,0 +1,83 @@
+id:
+name: Tomcat-Manager-Default
+transport: http
+tags:
+  -  Apache-Tomcat
+rules:
+  r0:
+    request:
+      cache: true
+      method: GET
+      path: /
+      headers:
+        Authorization: "Basic dG9tY2F0JTNBdG9tY2F0"
+      follow_redirects: true
+    expression: response.status==200 &&
+                response.body.bcontains(b'Apache Tomcat') &&
+                response.body.bcontains(b'Server Information') &&
+                response.body.bcontains(b'Hostname')
+  r1:
+    request:
+      cache: true
+      method: GET
+      path: /
+      headers:
+        Authorization: "Basic YWRtaW4lM0FhZG1pbg=="
+      follow_redirects: true
+    expression: response.status==200 &&
+      response.body.bcontains(b'Apache Tomcat') &&
+      response.body.bcontains(b'Server Information') &&
+      response.body.bcontains(b'Hostname')
+  r2:
+    request:
+      cache: true
+      method: GET
+      path: /
+      headers:
+        Authorization: "Basic b3Z3ZWJ1c3IlM0FPdlcqYnVzcjE="
+      follow_redirects: true
+    expression: response.status==200 &&
+      response.body.bcontains(b'Apache Tomcat') &&
+      response.body.bcontains(b'Server Information') &&
+      response.body.bcontains(b'Hostname')
+  r3:
+    request:
+      cache: true
+      method: GET
+      path: /
+      headers:
+        Authorization: "Basic ajJkZXBsb3llciUzQWoyZGVwbG95ZXI="
+      follow_redirects: true
+    expression: response.status==200 &&
+      response.body.bcontains(b'Apache Tomcat') &&
+      response.body.bcontains(b'Server Information') &&
+      response.body.bcontains(b'Hostname')
+  r4:
+    request:
+      cache: true
+      method: GET
+      path: /
+      headers:
+        Authorization: "Basic ajJkZXBsb3llciUzQWoyZGVwbG95ZXI="
+      follow_redirects: true
+    expression: response.status==200 &&
+      response.body.bcontains(b'Apache Tomcat') &&
+      response.body.bcontains(b'Server Information') &&
+      response.body.bcontains(b'Hostname')
+  r5:
+    request:
+      cache: true
+      method: GET
+      path: /
+      headers:
+        Authorization: "Basic cm9vdCUzQXJvb3Q="
+      follow_redirects: true
+    expression: response.status==200 &&
+      response.body.bcontains(b'Apache Tomcat') &&
+      response.body.bcontains(b'Server Information') &&
+      response.body.bcontains(b'Hostname')
+expression: r0() || r1() || r2() || r3() || r4() || r5()
+detail:
+  vulnerability:
+    proof:
+      info: "存在Tomcat-Manager-Default 默认口令漏洞"

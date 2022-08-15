@@ -1,0 +1,39 @@
+id:
+name: DVWA-Default-Login
+tags:
+  - DVWA
+transport: http
+rules:
+  r0:
+    request:
+      cache: false
+      method: GET
+      path: /login.php
+      headers:
+        Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+        Connection: close
+    expression: r'Damn Vulnerable Web Application'.bmatches(response.body)
+    output:
+      token: r"type='hidden' name='user_token' value='([0-9a-z]+)'".bsubmatch(response.body)['1']
+  r1:
+    request:
+      cache: false
+      method: POST
+      path: /login.php
+      headers:
+        Content-Type: application/x-www-form-urlencoded
+        Connection: close
+        Upgrade-Insecure-Requests: 1
+        Sec-Fetch-Dest: document
+        Sec-Fetch-Mode: navigate
+        Sec-Fetch-Site: same-origin
+        Sec-Fetch-User: ?1
+      body: username=admin&password=password&Login=Login&user_token={{token}}
+      follow_redirects: true
+    expression: r"You have logged in as 'admin'".bmatches(response.body)
+
+expression: r0() && r1()
+detail:
+  vulnerability:
+    proof:
+      info: "存在DVWA-Default-Login 默认口令漏洞"

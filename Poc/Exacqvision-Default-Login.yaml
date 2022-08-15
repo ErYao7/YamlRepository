@@ -1,0 +1,27 @@
+id:
+name: Exacqvision-Default-Login
+transport: http
+tags:
+  - Exacqvision
+rules:
+  req:
+    request:
+      cache: true
+      method: POST
+      path: /service.web
+      headers:
+        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+        Connection: close
+      body: action=login&u=admin&p=admin256
+      follow_redirects: true
+    expression: >
+      response.status==200 &&
+      response.body.bcontains(b'"success": true') &&
+      response.body.bcontains(b'"auth":') &&
+      response.content_type.contains('application/json')
+
+expression: req()
+detail:
+  vulnerability:
+    proof:
+      info: "存在Exacqvision-Default-Login 默认口令漏洞"

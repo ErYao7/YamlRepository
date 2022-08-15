@@ -1,0 +1,26 @@
+id:
+name: Nsfocus-BAS-Unauthorized
+transport: http
+tags:
+  - Nsfocus-BAS
+rules:
+  req:
+    request:
+      cache: true
+      method: GET
+      path: /accountmanage/index
+      follow_redirects: true
+    expression: response.status==200 &&
+      response.body.bcontains(b'<title>访问控制</title>') &&
+      response.body.bcontains(b'用户管理') &&
+      response.body.bcontains(b'权限组管理') &&
+      response.body.bcontains(b'平台菜单权限管理') &&
+      response.body.bcontains(b'APP内部权限管理') &&
+      response.body.bcontains(b'新建用户') &&
+      response.body.bcontains(b'用户名') &&
+      response.body.bcontains(b'所属权限组')
+expression: req()
+detail:
+  vulnerability:
+    proof:
+      info: "存在 Nsfocus-BAS-Unauthorized 未授权漏洞"

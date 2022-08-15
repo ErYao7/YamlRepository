@@ -1,0 +1,18 @@
+id:
+transport: http
+rules:
+  req:
+    request:
+      method: GET
+      path: /tweb/
+    expression: response.status==200 &&
+                response.body.bcontains(b'NetGenie - Office') &&
+                'Server' in response.headers && response.headers['Server'].contains('Netgenie')
+expression: req()
+detail:
+  fingerprint:
+    softhard: 1
+    product: Cyberoam NetGenie
+    company: Cyberoam
+    category: Router
+    parent_category: Network Device

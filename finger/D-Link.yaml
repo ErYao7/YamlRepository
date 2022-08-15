@@ -1,0 +1,20 @@
+id:
+transport: http
+rules:
+    req:
+        request:
+            cache: false
+            method: GET
+            path: /
+            follow_redirects: true
+        expression: response.body.bcontains(b'D-Link Systems, Inc') || response.raw_header.bcontains(b'Digest realm') || response.body.bcontains(b'D-Link Corporation')
+expression: req()
+detail:
+    fingerprint:
+        softhard: 1
+        product: D-LINK Systems
+        company: D-LINK
+        category: Cameras and Surveillance
+        parent_category: Software System
+
+

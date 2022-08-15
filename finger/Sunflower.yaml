@@ -1,0 +1,15 @@
+id:
+transport: http
+rules:
+  req:
+    request:
+      cache: false
+      method: GET
+      path: /cgi-bin/rpc?action=verify-haras
+      follow_redirects: true
+    expression: response.status==200 && response.body.bcontains(b"verify_string")
+expression: req()
+detail:
+  fingerprint:
+    softhard: 2
+    product: Sunflower

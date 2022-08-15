@@ -1,0 +1,32 @@
+id:
+transport: http
+rules:
+  r0:
+    request:
+      cache: false
+      method: GET
+      path: /clusters
+      follow_redirects: true
+    expression: response.status==200 && (response.body.bcontains(b'Clustering')  ||
+                response.body.bcontains(b'Sourcecodester') ||
+                response.body.bcontains(b'Clusters') ||
+                response.body.bcontains(b'Showing clusters from'))
+  r1:
+    request:
+      method: GET
+      path: /
+      follow_redirects: true
+    expression: response.status==200 && (response.body.bcontains(b'Clustering')  ||
+                response.body.bcontains(b'Sourcecodester') ||
+                response.body.bcontains(b'Clusters') ||
+                response.body.bcontains(b'Showing clusters from'))
+expression: r0() || r1()
+detail:
+  fingerprint:
+    softhard: 2
+    product: Clustering
+    company: Varun Suresh
+    category: Other Software System
+    parent_category: Software System
+
+

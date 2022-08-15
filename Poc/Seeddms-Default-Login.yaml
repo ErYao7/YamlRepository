@@ -1,0 +1,21 @@
+id:
+name: Seeddms-Default-Login
+transport: http
+tags:
+  - SeedDMS
+rules:
+  req:
+    request:
+      cache: true
+      method: POST
+      path: /op/op.Login.php
+      headers:
+        Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+      body: login=admin&pwd=admin&lang=
+    expression: response.status==302 &&
+                'Location' in response.headers && response.headers['Location'].contains('/out/out.ViewFolder.php')
+expression: req()
+detail:
+  vulnerability:
+    proof:
+      info: "存在Seeddms-Default-Login 默认口令漏洞"

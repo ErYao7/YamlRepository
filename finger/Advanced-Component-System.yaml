@@ -1,0 +1,14 @@
+id:
+transport: http
+rules:
+  req:
+    request:
+      method: GET
+      path: /
+      follow_redirects: true
+    expression: response.status==200 && response.body.bcontains(b'ACS Advanced Comment System')
+expression: req()
+detail:
+  fingerprint:
+    softhard: 1
+    product: Advanced Comment System

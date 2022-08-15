@@ -1,8 +1,0 @@
-http://121.201.30.99:8009
-http://121.201.30.93:8009
-http://203.137.162.138:8009
-https://supervision.ville-montereau77.fr
-http://139.199.73.187:8009
-http://114.215.110.103:83
-http://203.137.163.94:8009
-http://land.sgqxz.xy.com:8009

