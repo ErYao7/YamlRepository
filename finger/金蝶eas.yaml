@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 金蝶eas
+expression: r0()
+id: ""
+name: 金蝶eas
+rules:
+  r0:
+    expression: r"(?i)easSessionId".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

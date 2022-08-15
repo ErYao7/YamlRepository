@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: joomla
+expression: r0()
+id: ""
+name: joomla
+rules:
+  r0:
+    expression: r"(?i)(content=\\u0022joomla|/media/system/js/core.js|/media/system/js/mootools-core.js)".bmatches(response.body)
+      || r"(?i)(63b982eddd64d44233baa25066db6bc1)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

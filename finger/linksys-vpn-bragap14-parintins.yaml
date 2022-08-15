@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: linksys-vpn-bragap14-parintins
+expression: r0()
+id: ""
+name: linksys-vpn-bragap14-parintins
+rules:
+  r0:
+    expression: r"(?i)linksys-vpn-bragap14-parintins".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

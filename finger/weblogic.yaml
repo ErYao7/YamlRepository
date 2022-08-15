@@ -1,0 +1,17 @@
+detail:
+  fingerprint:
+    product: weblogic
+expression: r0()
+id: ""
+name: weblogic
+rules:
+  r0:
+    expression: r"(?i)/console/framework/skins/wlsconsole/images/login_WebLogic_branding.png".bmatches(response.body)
+      || r"(?i)Welcome to Weblogic Application Server".bmatches(response.body) ||
+      r"(?i)<i>Hypertext Transfer Protocol -- HTTP/1.1</i>".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

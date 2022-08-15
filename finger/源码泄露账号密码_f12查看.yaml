@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 源码泄露账号密码_f12查看
+expression: r0()
+id: ""
+name: 源码泄露账号密码_f12查看
+rules:
+  r0:
+    expression: r"(?i)get_dkey_passwd".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

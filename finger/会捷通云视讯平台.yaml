@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 会捷通云视讯平台
+expression: r0()
+id: ""
+name: 会捷通云视讯平台
+rules:
+  r0:
+    expression: r"(?i)him/api/rest/v1.0/node/role".bmatches(response.body) || r"(?i)him.app".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: h3c-secblade-firewall
+expression: r0()
+id: ""
+name: h3c-secblade-firewall
+rules:
+  r0:
+    expression: r"(?i)js/MulPlatAPI.js".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

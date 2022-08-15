@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 万户网络
+expression: r0()
+id: ""
+name: 万户网络
+rules:
+  r0:
+    expression: r"(?i)css/css_whir.css".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: citrix-web-pn-server
+expression: r0()
+id: ""
+name: citrix-web-pn-server
+rules:
+  r0:
+    expression: r"(?i)Citrix Web PN Server".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

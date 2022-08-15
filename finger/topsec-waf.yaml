@@ -1,0 +1,17 @@
+detail:
+  fingerprint:
+    product: topsec-waf
+expression: r0()
+id: ""
+name: topsec-waf
+rules:
+  r0:
+    expression: r"(?i)<META NAME=\\u0022Copyright\\u0022 CONTENT=\\u0022Topsec Network
+      Security Technology Co.,Ltd\\u0022/>\\u0022,\\u0022<META NAME=\\u0022DESCRIPTION\\u0022
+      CONTENT=\\u0022Topsec web UI\\u0022/>".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

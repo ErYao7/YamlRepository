@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 大汉版通发布系统
+expression: r0()
+id: ""
+name: 大汉版通发布系统
+rules:
+  r0:
+    expression: r"(?i)大汉版通发布系统".bmatches(response.body) || r"(?i)大汉网络".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

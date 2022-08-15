@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 深信服防火墙类产品
+expression: r0()
+id: ""
+name: 深信服防火墙类产品
+rules:
+  r0:
+    expression: r"(?i)SANGFOR FW".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: h3c公司产品
+expression: r0()
+id: ""
+name: h3c公司产品
+rules:
+  r0:
+    expression: r"(?i)service@h3c.com".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

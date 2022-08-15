@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: phpmyadmin
+expression: r0()
+id: ""
+name: phpmyadmin
+rules:
+  r0:
+    expression: 'r"(?i)(pma_password|phpmyadmin)".bmatches(response.body) || r"(?i)(set-cookie:
+      phpmyadmin=|realm=\\u0022phpmyadmin)".bmatches(response.raw_header) || r"(?i)(531b63a51234bb06c9d77f219eb25553|d037ef2f629a22ddadcf438e6be7a325|02dd7453848213a7b5277556bcc46307|531b63a51234bb06c9d77f219eb25553)".matches(byte_md5(response.body))'
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

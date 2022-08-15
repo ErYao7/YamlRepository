@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: shiro
+expression: r0()
+id: ""
+name: shiro
+rules:
+  r0:
+    expression: r"(?i)=deleteMe".bmatches(response.raw_header) || r"(?i)rememberMe=".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

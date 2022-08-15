@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: jenkins
+expression: r0()
+id: ""
+name: jenkins
+rules:
+  r0:
+    expression: r"(?i)Jenkins".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

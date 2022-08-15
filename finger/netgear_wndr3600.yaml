@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: netgear_wndr3600
+expression: r0()
+id: ""
+name: netgear_wndr3600
+rules:
+  r0:
+    expression: r"(?i)NETGEAR WNDR3600".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

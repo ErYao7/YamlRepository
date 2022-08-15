@@ -1,0 +1,17 @@
+detail:
+  fingerprint:
+    product: tongda-oa
+expression: r0()
+id: ""
+name: tongda-oa
+rules:
+  r0:
+    expression: r"(?i)(/static/templates/2013_01/index.css/|javascript:document.form1.uname.focus()|href=\\u0022/static/images/tongda.ico\\u0022|<link
+      rel=\\u0022shortcut icon\\u0022 href=\\u0022/images/tongda.ico\\u0022 />|oa提示：不能登录oa|紧急通知：今日10点停电|tongda.ico|class=\\u0022style1\\u0022>新oa办公系统|rel=\\u0022shortcut
+      icon\\u0022 href=\\u0022/static/images/tongda.ico\\u0022|<a href=\\u0022https://www.tongda2000.com/download)".bmatches(response.body)
+      || r"(?i)(ed0044587917c76d08573577c8b72883)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

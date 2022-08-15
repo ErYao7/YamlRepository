@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: apache-kylin
+expression: r0()
+id: ""
+name: apache-kylin
+rules:
+  r0:
+    expression: r"(?i)url=kylin".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

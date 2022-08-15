@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: gitea简易git服务
+expression: r0()
+id: ""
+name: gitea简易git服务
+rules:
+  r0:
+    expression: r"(?i)i_like_gitea".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

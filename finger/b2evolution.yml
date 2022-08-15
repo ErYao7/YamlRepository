@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: b2evolution
+expression: r0()
+id: ""
+name: b2evolution
+rules:
+  r0:
+    expression: r"(?i)(/powered-by-b2evolution-150t.gif|powered by b2evolution|content=\\u0022b2evolution)".bmatches(response.body)
+      || r"(?i)(de68f0ad7b37001b8241bce3887593c7)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

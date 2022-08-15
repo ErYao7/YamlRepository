@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: minio
+expression: r0()
+id: ""
+name: minio
+rules:
+  r0:
+    expression: 'r"(?i)(<img src=\\u0022/minio/logo.svg\\u0022 alt=\\u0022\\u0022>|<title>Minio
+      Browser</title>)".bmatches(response.body) || r"(?i)(Server: MinIO(.*))".bmatches(response.raw_header)
+      || r"(?i)(613d1c501e586902bd510ab8b8de7cfa)".matches(byte_md5(response.body))'
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

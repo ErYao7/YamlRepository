@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: thinkphp
+expression: r0()
+id: ""
+name: thinkphp
+rules:
+  r0:
+    expression: r"(?i)(href=\\u0022http://www.thinkphp.cn\\u0022>ThinkPHP</a>|十年磨一剑-为API开发设计的高性能框架)".bmatches(response.body)
+      || r"(?i)(thinkphp|think_template)".bmatches(response.raw_header) || r"(?i)(f49c4a4bde1eec6c0b80c2277c76e3db)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 金蝶政务gsis
+expression: r0()
+id: ""
+name: 金蝶政务gsis
+rules:
+  r0:
+    expression: r"(?i)/kdgs/script/kdgs.js".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

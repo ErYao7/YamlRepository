@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: jenkins
+expression: r0()
+id: ""
+name: jenkins
+rules:
+  r0:
+    expression: r"(?i)(jenkins-agent-protocols|Error 403 No valid crumb was included
+      in the request)".bmatches(response.body) || r"(?i)X-Jenkins".bmatches(response.raw_header)
+      || r"(?i)(23e8c7bd78e8cd826c5a6073b15068b1)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

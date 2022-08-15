@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 深信服ssl-vpn
+expression: r0()
+id: ""
+name: 深信服ssl-vpn
+rules:
+  r0:
+    expression: r"(?i)login_psw.csp".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: jboss
+expression: r0()
+id: ""
+name: jboss
+rules:
+  r0:
+    expression: r"(?i)JBoss".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 金和oa
+expression: r0()
+id: ""
+name: 金和oa
+rules:
+  r0:
+    expression: r"(?i)ASPSESSIONIDSSCDTDBS".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

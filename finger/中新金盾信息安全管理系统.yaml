@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 中新金盾信息安全管理系统
+expression: r0()
+id: ""
+name: 中新金盾信息安全管理系统
+rules:
+  r0:
+    expression: r"(?i)中新金盾信息安全管理系统".bmatches(response.body) || r"(?i)中新网络信息安全股份有限公司".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

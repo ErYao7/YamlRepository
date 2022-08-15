@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 华为_huawei_asg2100
+expression: r0()
+id: ""
+name: 华为_huawei_asg2100
+rules:
+  r0:
+    expression: r"(?i)HUAWEI ASG2100".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

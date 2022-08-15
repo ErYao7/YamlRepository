@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 360网站卫士
+expression: r0()
+id: ""
+name: 360网站卫士
+rules:
+  r0:
+    expression: r"(?i)360wzb".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

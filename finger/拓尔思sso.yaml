@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 拓尔思sso
+expression: r0()
+id: ""
+name: 拓尔思sso
+rules:
+  r0:
+    expression: r"(?i)trsidsssosessionid".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

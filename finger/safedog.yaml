@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: safedog
+expression: r0()
+id: ""
+name: safedog
+rules:
+  r0:
+    expression: r"(?i)Safedog".bmatches(response.raw_header) || r"(?i)WAF/2.0".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

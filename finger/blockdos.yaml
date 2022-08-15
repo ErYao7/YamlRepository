@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: blockdos
+expression: r0()
+id: ""
+name: blockdos
+rules:
+  r0:
+    expression: r"(?i)BlockDos.net".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

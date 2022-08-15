@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: tp-link_3600_dd-wrt
+expression: r0()
+id: ""
+name: tp-link_3600_dd-wrt
+rules:
+  r0:
+    expression: r"(?i)TP-Link 3600 DD-WRT".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

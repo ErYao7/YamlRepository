@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: citrix-confproxy
+expression: r0()
+id: ""
+name: citrix-confproxy
+rules:
+  r0:
+    expression: r"(?i)confproxy".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

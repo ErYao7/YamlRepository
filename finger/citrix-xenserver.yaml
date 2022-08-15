@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: citrix-xenserver
+expression: r0()
+id: ""
+name: citrix-xenserver
+rules:
+  r0:
+    expression: r"(?i)Citrix Systems, Inc. XenServer".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

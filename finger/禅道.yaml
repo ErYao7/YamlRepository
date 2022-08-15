@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 禅道
+expression: r0()
+id: ""
+name: 禅道
+rules:
+  r0:
+    expression: r"(?i)zentaosid".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

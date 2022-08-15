@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 华为（huawei）安全设备
+expression: r0()
+id: ""
+name: 华为（huawei）安全设备
+rules:
+  r0:
+    expression: r"(?i)sweb-lib/resource/".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

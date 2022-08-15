@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: apache-solr
+expression: r0()
+id: ""
+name: apache-solr
+rules:
+  r0:
+    expression: r"(?i)(SolrCore Initialization Failures|ng-app=\\u0022solrAdminApp\\u0022)".bmatches(response.body)
+      || r"(?i)(69acfcb2659952bc37c54108d52fca70|ffc05799dee87a4f8901c458f7291d73)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

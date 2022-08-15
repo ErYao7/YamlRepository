@@ -1,0 +1,18 @@
+detail:
+  fingerprint:
+    product: apache-tomcat
+expression: r0()
+id: ""
+name: apache-tomcat
+rules:
+  r0:
+    expression: r"(?i)(href=\\u0022tomcat.css|tomcat.apache.org|this is the default
+      tomcat home page|<h3>apache tomcat|<a href=\\u0022/docs/setup.html\\u0022>Tomcat
+      Setup</a>|If you're seeing this, you've successfully installed Tomcat. Congratulations!|this
+      is the default tomcat home page|tomcat.apache.org|href=\\\\u0022tomcat.css)".bmatches(response.body)
+      || r"(?i)(d80e364c0d3138c7ecd75bf9896f2cad|4644f2d45601037b8423d45e13194c93)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

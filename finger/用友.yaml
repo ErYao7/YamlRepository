@@ -1,0 +1,17 @@
+detail:
+  fingerprint:
+    product: 用友
+expression: r0()
+id: ""
+name: 用友
+rules:
+  r0:
+    expression: r"(?i)YONYOU NC ".bmatches(response.body) || r"(?i) /Client/Uclient/UClient.dmg".bmatches(response.body)
+      || r"(?i)iufo/web/css/menu.css".bmatches(response.body) || r"(?i)/System/Login/Login.asp?AppID=".bmatches(response.body)
+      || r"(?i)/nc/servlet/nc.ui.iufo.login.Index".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

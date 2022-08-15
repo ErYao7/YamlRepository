@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: modsecurity
+expression: r0()
+id: ""
+name: modsecurity
+rules:
+  r0:
+    expression: r"(?i)Mod_Security".bmatches(response.raw_header) || r"(?i)NOYB".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

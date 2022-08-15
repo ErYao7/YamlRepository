@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: hfs
+expression: r0()
+id: ""
+name: hfs
+rules:
+  r0:
+    expression: r"(?i)href=\\u0022http://www.rejetto.com/hfs/".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

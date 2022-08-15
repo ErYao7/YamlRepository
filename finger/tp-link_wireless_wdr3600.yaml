@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: tp-link_wireless_wdr3600
+expression: r0()
+id: ""
+name: tp-link_wireless_wdr3600
+rules:
+  r0:
+    expression: r"(?i)TP-LINK Wireless WDR3600".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

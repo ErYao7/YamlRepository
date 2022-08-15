@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 齐治堡垒机
+expression: r0()
+id: ""
+name: 齐治堡垒机
+rules:
+  r0:
+    expression: r"(?i)logo-icon-ico72.png".bmatches(response.body) || r"(?i)resources/themes/images/logo-login.png".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

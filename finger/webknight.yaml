@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: webknight
+expression: r0()
+id: ""
+name: webknight
+rules:
+  r0:
+    expression: r"(?i)WebKnight".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

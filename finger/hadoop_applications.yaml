@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: hadoop_applications
+expression: r0()
+id: ""
+name: hadoop_applications
+rules:
+  r0:
+    expression: r"(?i)/cluster/app/application".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

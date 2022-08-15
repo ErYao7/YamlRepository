@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: ibm-lotus-domino
+expression: r0()
+id: ""
+name: ibm-lotus-domino
+rules:
+  r0:
+    expression: r"(?i)/mailjump.nsf".bmatches(response.body) || r"(?i)/domcfg.nsf".bmatches(response.body)
+      || r"(?i)/names.nsf".bmatches(response.body) || r"(?i)/homepage.nsf".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

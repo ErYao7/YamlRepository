@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: zabbix
+expression: r0()
+id: ""
+name: zabbix
+rules:
+  r0:
+    expression: 'r"(?i)images/general/zabbix.ico".bmatches(response.body) || r"(?i)Zabbix
+      SIA".bmatches(response.body) || r"(?i)zabbix-server: Zabbix".bmatches(response.body)'
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

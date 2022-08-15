@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 阿里云cdn
+expression: r0()
+id: ""
+name: 阿里云cdn
+rules:
+  r0:
+    expression: r"(?i)cdn.aliyuncs.com".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

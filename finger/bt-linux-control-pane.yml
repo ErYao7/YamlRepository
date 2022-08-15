@@ -1,0 +1,17 @@
+detail:
+  fingerprint:
+    product: bt-linux-control-pane
+expression: r0()
+id: ""
+name: bt-linux-control-pane
+rules:
+  r0:
+    expression: 'r"(?i)(<img src=\\u0022https://app.bt.cn/static/app.png\\u0022>|href=\\u0022http://www.bt.cn/bbs/thread-1172-1-1.html|宝塔linux面板|src=\\u0022/static/js/validform_v5.3.2_min.js|请使用正确的入口登录面板|rm
+      -f /www/server/panel/data/admin_path.pl|宝塔(.*)面板)".bmatches(response.body) ||
+      r"(?i)(set-cookie: bt_panel=|Set-Cookie: BT_COLL=)".bmatches(response.raw_header)
+      || r"(?i)(9637ebd168435de51fea8193d2d89e39)".matches(byte_md5(response.body))'
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

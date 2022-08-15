@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 启明防火墙
+expression: r0()
+id: ""
+name: 启明防火墙
+rules:
+  r0:
+    expression: r"(?i)/cgi-bin/webui?op=get_product_model".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

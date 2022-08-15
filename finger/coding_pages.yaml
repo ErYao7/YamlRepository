@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: coding_pages
+expression: r0()
+id: ""
+name: coding_pages
+rules:
+  r0:
+    expression: r"(?i)Coding Pages".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

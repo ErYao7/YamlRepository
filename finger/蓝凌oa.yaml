@@ -1,0 +1,17 @@
+detail:
+  fingerprint:
+    product: 蓝凌oa
+expression: r0()
+id: ""
+name: 蓝凌oa
+rules:
+  r0:
+    expression: r"(?i)蓝凌软件".bmatches(response.body) || r"(?i)StylePath:\\u0022/resource/style/default/\\u0022".bmatches(response.body)
+      || r"(?i)/resource/customization".bmatches(response.body) || r"(?i)sys/ui/extend/theme/default/style/profile.css".bmatches(response.body)
+      || r"(?i)sys/ui/extend/theme/default/style/icon.css".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

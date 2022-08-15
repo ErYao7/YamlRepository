@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: swagger_ui
+expression: r0()
+id: ""
+name: swagger_ui
+rules:
+  r0:
+    expression: r"(?i)swagger-ui/css".bmatches(response.body) || r"(?i)\\u0022swagger\\u0022:".bmatches(response.body)
+      || r"(?i)swagger-ui.min.js".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

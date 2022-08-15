@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: confluence
+expression: r0()
+id: ""
+name: confluence
+rules:
+  r0:
+    expression: r"(?i)(name=\\u0022confluence-base-url\\u0022|id=\\u0022com-atlassian-confluence)".bmatches(response.body)
+      || r"(?i)(x-confluence-|tp-link router upnp)".bmatches(response.raw_header)
+      || r"(?i)(966e60f8eb85b7ea43a7b0095f3e2336)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

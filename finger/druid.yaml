@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: druid
+expression: r0()
+id: ""
+name: druid
+rules:
+  r0:
+    expression: r"(?i)druid.index".bmatches(response.body) || r"(?i)DruidDrivers".bmatches(response.body)
+      || r"(?i)DruidVersion".bmatches(response.body) || r"(?i)Druid Stat Index".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

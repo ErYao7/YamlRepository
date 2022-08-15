@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: typecho
+expression: r0()
+id: ""
+name: typecho
+rules:
+  r0:
+    expression: r"(?i)Typecho</a>".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

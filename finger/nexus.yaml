@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: nexus
+expression: r0()
+id: ""
+name: nexus
+rules:
+  r0:
+    expression: r"(?i)NX-ANTI-CSRF-TOKEN".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

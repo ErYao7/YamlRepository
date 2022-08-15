@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: dotdefender
+expression: r0()
+id: ""
+name: dotdefender
+rules:
+  r0:
+    expression: r"(?i)dotDefender".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

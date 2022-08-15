@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: exchange
+expression: r0()
+id: ""
+name: exchange
+rules:
+  r0:
+    expression: r"(?i)/owa/auth.owa".bmatches(response.body) || r"(?i)Exchange Admin
+      Center".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

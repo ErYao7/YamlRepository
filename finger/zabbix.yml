@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: zabbix
+expression: r0()
+id: ""
+name: zabbix
+rules:
+  r0:
+    expression: r"(?i)(href=\\u0022https://www.zabbix.com/support\\u0022)".bmatches(response.body)
+      || r"(?i)0fbe700fd7d07ec8d30ef8b3ac261484".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

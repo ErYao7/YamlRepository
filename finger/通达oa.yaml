@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: 通达oa
+expression: r0()
+id: ""
+name: 通达oa
+rules:
+  r0:
+    expression: r"(?i)/static/images/tongda.ico".bmatches(response.body) || r"(?i)http://www.tongda2000.com".bmatches(response.body)
+      || r"(?i)通达OA移动版".bmatches(response.body) || r"(?i)Office Anywhere".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

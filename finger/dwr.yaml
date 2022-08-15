@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: dwr
+expression: r0()
+id: ""
+name: dwr
+rules:
+  r0:
+    expression: r"(?i)dwr/engine.js".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

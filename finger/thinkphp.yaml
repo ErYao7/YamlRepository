@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: thinkphp
+expression: r0()
+id: ""
+name: thinkphp
+rules:
+  r0:
+    expression: r"(?i)/Public/static/js/".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

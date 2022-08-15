@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: h3c_er3260g2
+expression: r0()
+id: ""
+name: h3c_er3260g2
+rules:
+  r0:
+    expression: r"(?i)ER3260G2系统管理".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

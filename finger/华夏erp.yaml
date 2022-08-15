@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 华夏erp
+expression: r0()
+id: ""
+name: 华夏erp
+rules:
+  r0:
+    expression: r"(?i)华夏ERP".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

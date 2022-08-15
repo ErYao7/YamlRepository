@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: discuz
+expression: r0()
+id: ""
+name: discuz
+rules:
+  r0:
+    expression: r"(?i)content=\\u0022Discuz! X\\u0022".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

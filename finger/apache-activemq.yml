@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: apache-activemq
+expression: r0()
+id: ""
+name: apache-activemq
+rules:
+  r0:
+    expression: r"(?i)(<h2>Welcome to the Apache ActiveMQ!</h2>)".bmatches(response.body)
+      || r"(?i)05664fb0c7afcd6436179437e31f3aa6".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

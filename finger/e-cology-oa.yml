@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: e-cology-oa
+expression: r0()
+id: ""
+name: e-cology-oa
+rules:
+  r0:
+    expression: 'r"(?i)(<script type=\\u0022text/javascript\\u0022 src=\\u0022/js/ecology)".bmatches(response.body)
+      || r"(?i)(Set-Cookie: ecology(.*))".bmatches(response.raw_header) || r"(?i)(41eca7a9245394106a09b2534d8030df)".matches(byte_md5(response.body))'
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

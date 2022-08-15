@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: wordpress_admin
+expression: r0()
+id: ""
+name: wordpress_admin
+rules:
+  r0:
+    expression: 'r"(?i)(<a href=\\u0022https://cn.wordpress.org/\\u0022 title=)".bmatches(response.body)
+      || r"(?i)(Set-Cookie: wordpress_test_cookie=(.*))".bmatches(response.raw_header)
+      || r"(?i)(e1e8bdc3ce87340ab6ebe467519cf245|b231ad66a2a9b0eb06f72c4c88973039|D5FE5CBCC31CFF5F8AC010DB72EB000C|28a122aa74f6929b0994fc544555c0b1|3ead5afa19537170bb980924397b70d6|e44d22b74f7ee4435e22062d5adf4a6a|6cec5a9c106d45e458fc680f70df91b0|fa54dbf2f61bd2e0188e47f5f578f736)".matches(byte_md5(response.body))'
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

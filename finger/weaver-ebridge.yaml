@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: weaver-ebridge
+expression: r0()
+id: ""
+name: weaver-ebridge
+rules:
+  r0:
+    expression: r"(?i)e-Bridge,http://wx.weaver".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

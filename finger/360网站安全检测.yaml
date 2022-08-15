@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 360网站安全检测
+expression: r0()
+id: ""
+name: 360网站安全检测
+rules:
+  r0:
+    expression: r"(?i)webscan.360.cn/status/pai/hash".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

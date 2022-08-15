@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: h3c-am8000
+expression: r0()
+id: ""
+name: h3c-am8000
+rules:
+  r0:
+    expression: r"(?i)AM8000".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

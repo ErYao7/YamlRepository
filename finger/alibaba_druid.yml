@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: alibaba_druid
+expression: r0()
+id: ""
+name: alibaba_druid
+rules:
+  r0:
+    expression: |-
+      r"(?i)(<meta http-equiv=\\u0022refresh\\u0022 content=\\u00220;url=faq.html\\u0022>
+      (.*)<title>Welcome</title>|click(druid.login.login)|<title>druid monitor</title>|druid.common.buildHead|druid.index.init())".bmatches(response.body)
+    request:
+      cache: true
+      method: GET
+      path: /
+transport: http

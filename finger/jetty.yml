@@ -1,0 +1,14 @@
+detail:
+  fingerprint:
+    product: jetty
+expression: r0()
+id: ""
+name: jetty
+rules:
+  r0:
+    expression: 'r"(?i)(Server: Jetty(.*))".bmatches(response.raw_header) || r"(?i)(ed7d5c39c69262f4ba95418d4f909b10)".matches(byte_md5(response.body))'
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

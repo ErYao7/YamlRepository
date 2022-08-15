@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 海昌oa
+expression: r0()
+id: ""
+name: 海昌oa
+rules:
+  r0:
+    expression: r"(?i)/loginmain4/js/jquery.min.js".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

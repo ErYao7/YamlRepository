@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: cisco-cx20
+expression: r0()
+id: ""
+name: cisco-cx20
+rules:
+  r0:
+    expression: r"(?i)CISCO-CX20".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

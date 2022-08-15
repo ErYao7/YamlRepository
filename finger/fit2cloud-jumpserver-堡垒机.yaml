@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: fit2cloud-jumpserver-堡垒机
+expression: r0()
+id: ""
+name: fit2cloud-jumpserver-堡垒机
+rules:
+  r0:
+    expression: r"(?i)<title>JumpServer</title>".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

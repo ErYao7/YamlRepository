@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: gogs简易git服务
+expression: r0()
+id: ""
+name: gogs简易git服务
+rules:
+  r0:
+    expression: r"(?i)i_like_gogs".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

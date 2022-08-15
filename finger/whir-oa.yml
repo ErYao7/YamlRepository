@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: whir-oa
+expression: r0()
+id: ""
+name: whir-oa
+rules:
+  r0:
+    expression: 'r"(?i)(return ajaxForSync[(]whirRootPath)".bmatches(response.body)
+      || r"(?i)(Set-Cookie: OASESSIONID=(.*))".bmatches(response.raw_header) || r"(?i)(fa1f01d0392d60663d8ce936fe06096a)".matches(byte_md5(response.body))'
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

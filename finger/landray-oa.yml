@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: landray-oa
+expression: r0()
+id: ""
+name: landray-oa
+rules:
+  r0:
+    expression: 'r"(?i)(lui_login_message_td|蓝凌软件 版权所有|url : Com_Parameter.ResPath+\\u0022jsp/clearSsoCookie.jsp\\u0022)".bmatches(response.body)
+      || r"(?i)(Set-Cookie: isopen=close)".bmatches(response.raw_header) || r"(?i)(302464c3f6207d57240649926cfc7bd4)".matches(byte_md5(response.body))'
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

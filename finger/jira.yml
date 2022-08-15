@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: jira
+expression: r0()
+id: ""
+name: jira
+rules:
+  r0:
+    expression: r"(?i)(jira.webresources|ams-build-number|com.atlassian.plugins|content=\\u0022jira|href=\\u0022/secure/AboutPage.jspa\\u0022>About
+      JIRA</a>|<meta name=\\u0022stp-license-product-name\\u0022 content=\\u0022JIRA\\u0022/>)".bmatches(response.body)
+      || r"(?i)(atlassian.xsrf.token)".bmatches(response.raw_header) || r"(?i)(88717398db158e3330ce94fc1784e4a7)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

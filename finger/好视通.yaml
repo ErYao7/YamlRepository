@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: 好视通
+expression: r0()
+id: ""
+name: 好视通
+rules:
+  r0:
+    expression: r"(?i)深圳银澎云计算有限公司".bmatches(response.body) || r"(?i)itunes.apple.com/us/app/id549407870".bmatches(response.body)
+      || r"(?i)hao-shi-tong-yun-hui-yi-yuan".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

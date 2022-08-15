@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: yunsuo
+expression: r0()
+id: ""
+name: yunsuo
+rules:
+  r0:
+    expression: r"(?i)yunsuo".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

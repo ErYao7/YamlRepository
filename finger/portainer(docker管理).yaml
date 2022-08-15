@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: portainer(docker管理)
+expression: r0()
+id: ""
+name: portainer(docker管理)
+rules:
+  r0:
+    expression: r"(?i)portainer.updatePassword".bmatches(response.body) || r"(?i)portainer.init.admin".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

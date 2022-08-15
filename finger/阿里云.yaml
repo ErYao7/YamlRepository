@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 阿里云
+expression: r0()
+id: ""
+name: 阿里云
+rules:
+  r0:
+    expression: r"(?i)errors.aliyun.com".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

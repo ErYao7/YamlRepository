@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: wifisky-7层流控路由器
+expression: r0()
+id: ""
+name: wifisky-7层流控路由器
+rules:
+  r0:
+    expression: r"(?i)深圳市领空技术有限公司".bmatches(response.body) || r"(?i)WIFISKY 7层流控路由器".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

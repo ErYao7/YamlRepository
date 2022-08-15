@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 浪潮_clusterenginev4.0
+expression: r0()
+id: ""
+name: 浪潮_clusterenginev4.0
+rules:
+  r0:
+    expression: r"(?i)0;url=module/login/login.html".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

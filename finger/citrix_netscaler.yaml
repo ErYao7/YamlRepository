@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: citrix_netscaler
+expression: r0()
+id: ""
+name: citrix_netscaler
+rules:
+  r0:
+    expression: r"(?i)ns_af".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

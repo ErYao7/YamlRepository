@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: nexus-repository-manager
+expression: r0()
+id: ""
+name: nexus-repository-manager
+rules:
+  r0:
+    expression: 'r"(?i)(Server: Nexus(.*))".bmatches(response.raw_header) || r"(?i)(nexus
+      repository manager|progressmessage(''initializing ...'')|Sonatype Nexus Repository
+      Manager|Nexus Repository Manager)".bmatches(response.body) || r"(?i)(79a95f4f1c2cc36eea51fe66450acfa2)".matches(byte_md5(response.body))'
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: jquery-1.7.2
+expression: r0()
+id: ""
+name: jquery-1.7.2
+rules:
+  r0:
+    expression: r"(?i)webui/js/jquerylib/jquery-1.7.2.min.js".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

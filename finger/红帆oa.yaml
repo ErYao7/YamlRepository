@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 红帆oa
+expression: r0()
+id: ""
+name: 红帆oa
+rules:
+  r0:
+    expression: r"(?i)iOffice".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

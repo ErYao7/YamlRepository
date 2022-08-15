@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 久其财务报表
+expression: r0()
+id: ""
+name: 久其财务报表
+rules:
+  r0:
+    expression: r"(?i)netrep/login.jsp".bmatches(response.body) || r"(?i)/netrep/intf".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

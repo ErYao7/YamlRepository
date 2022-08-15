@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: biscom-delivery-server
+expression: r0()
+id: ""
+name: biscom-delivery-server
+rules:
+  r0:
+    expression: r"(?i)(/bds/stylesheets/fds.css|/bds/includes/fdsjavascript.do)".bmatches(response.body)
+      || r"(?i)(eb05f77bf80d66f0db6b1f682ff08bee)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

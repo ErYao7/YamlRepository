@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 帆软报表
+expression: r0()
+id: ""
+name: 帆软报表
+rules:
+  r0:
+    expression: r"(?i)数据决策系统".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

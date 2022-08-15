@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: denyall
+expression: r0()
+id: ""
+name: denyall
+rules:
+  r0:
+    expression: r"(?i)sessioncookie=".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

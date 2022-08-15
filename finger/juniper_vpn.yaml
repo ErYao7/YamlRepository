@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: juniper_vpn
+expression: r0()
+id: ""
+name: juniper_vpn
+rules:
+  r0:
+    expression: r"(?i)welcome.cgi?p=logo".bmatches(response.body) || r"(?i)/images/logo_juniper_reversed.gif".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 360webfacil_360webmanager
+expression: r0()
+id: ""
+name: 360webfacil_360webmanager
+rules:
+  r0:
+    expression: r"(?i)publico/template/".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

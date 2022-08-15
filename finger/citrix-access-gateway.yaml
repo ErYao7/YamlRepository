@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: citrix-access-gateway
+expression: r0()
+id: ""
+name: citrix-access-gateway
+rules:
+  r0:
+    expression: r"(?i)Citrix Access Gateway".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

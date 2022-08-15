@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: newdefend
+expression: r0()
+id: ""
+name: newdefend
+rules:
+  r0:
+    expression: r"(?i)newdefend".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

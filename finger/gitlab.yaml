@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: gitlab
+expression: r0()
+id: ""
+name: gitlab
+rules:
+  r0:
+    expression: r"(?i)href=\\u0022https://about.gitlab.com/".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

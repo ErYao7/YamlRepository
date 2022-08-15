@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 打印机
+expression: r0()
+id: ""
+name: 打印机
+rules:
+  r0:
+    expression: r"(?i)打印机".bmatches(response.body) || r"(?i)media/canon.gif".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

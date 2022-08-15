@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: h3c_icg1000
+expression: r0()
+id: ""
+name: h3c_icg1000
+rules:
+  r0:
+    expression: r"(?i)ICG1000系统管理".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 华为_netopen
+expression: r0()
+id: ""
+name: 华为_netopen
+rules:
+  r0:
+    expression: r"(?i)/netopen/theme/css/inFrame.css".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

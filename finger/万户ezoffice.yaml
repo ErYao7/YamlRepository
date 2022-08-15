@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 万户ezoffice
+expression: r0()
+id: ""
+name: 万户ezoffice
+rules:
+  r0:
+    expression: r"(?i)LocLan".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

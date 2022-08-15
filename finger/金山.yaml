@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: 金山
+expression: r0()
+id: ""
+name: 金山
+rules:
+  r0:
+    expression: r"(?i)北京猎鹰安全科技有限公司".bmatches(response.body) || r"(?i)金山终端安全系统V9.0Web控制台".bmatches(response.body)
+      || r"(?i)北京金山安全管理系统技术有限公司".bmatches(response.body) || r"(?i)金山V8".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

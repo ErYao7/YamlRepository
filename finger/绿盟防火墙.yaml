@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 绿盟防火墙
+expression: r0()
+id: ""
+name: 绿盟防火墙
+rules:
+  r0:
+    expression: r"(?i)NSFocus".bmatches(response.raw_header)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

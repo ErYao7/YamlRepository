@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: 宝塔
+expression: r0()
+id: ""
+name: 宝塔
+rules:
+  r0:
+    expression: r"(?i)app.bt.cn/static/app.png".bmatches(response.body) || r"(?i)安全入口校验失败".bmatches(response.body)
+      || r"(?i)<title>入口校验失败</title>".bmatches(response.body) || r"(?i)href=\\u0022http://www.bt.cn/bbs".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

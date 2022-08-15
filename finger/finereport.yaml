@@ -1,0 +1,16 @@
+detail:
+  fingerprint:
+    product: finereport
+expression: r0()
+id: ""
+name: finereport
+rules:
+  r0:
+    expression: r"(?i)isSupportForgetPwd".bmatches(response.body) || r"(?i)FineReport,Web
+      Reporting Tool".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

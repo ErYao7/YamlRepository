@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: 金和协同管理平台
+expression: r0()
+id: ""
+name: 金和协同管理平台
+rules:
+  r0:
+    expression: r"(?i)金和协同管理平台".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http

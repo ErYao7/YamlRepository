@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: ruoyi
+expression: r0()
+id: ""
+name: ruoyi
+rules:
+  r0:
+    expression: r"(?i)(All Rights Reserved. RuoYi|/ry-ui.css|/ry-ui.js)".bmatches(response.body)
+      || r"(?i)(e49fd30ea870c7a820464ca56a113e6e)".matches(byte_md5(response.body))
+    request:
+      cache: true
+      method: GET
+      path: /favicon.ico
+transport: http

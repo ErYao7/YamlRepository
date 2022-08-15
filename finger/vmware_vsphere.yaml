@@ -1,0 +1,15 @@
+detail:
+  fingerprint:
+    product: vmware_vsphere
+expression: r0()
+id: ""
+name: vmware_vsphere
+rules:
+  r0:
+    expression: r"(?i)VMware vSphere".bmatches(response.body)
+    request:
+      cache: true
+      follow_redirects: true
+      method: GET
+      path: /
+transport: http
